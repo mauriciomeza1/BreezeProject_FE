@@ -2,7 +2,6 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './components/Home/Home';
 import Layout from './components/Layout/Layout';
-import PetsState from './context/Pets/PetsState';
 import UsersState from './context/Users/UsersState';
 
 
@@ -19,7 +18,7 @@ import Public from './routes/Public';
 function Router() {
   return (
     <>
-      <PetsState>
+
       <UsersState>
 
       <BrowserRouter>
@@ -57,7 +56,6 @@ function Router() {
       </BrowserRouter>
 
       </UsersState>
-      </PetsState>
 
     </>
   );
