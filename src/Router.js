@@ -11,6 +11,8 @@ import Login from './components/Auth/Login'
 import Auth from './routes/Auth'
 import Public from './routes/Public';
 
+import Profile from './components/Profile/Profile';
+
 
 
 
@@ -47,6 +49,13 @@ function Router() {
                   } 
                 />                
 
+                {/* localhost:3000/login */}
+                  <Route 
+                  path="profile"
+                  element={
+                    <Auth component={Profile} />
+                  } 
+                />       
 
 
 
