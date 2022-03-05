@@ -11,6 +11,9 @@ import Login from './components/Auth/Login'
 import Auth from './routes/Auth'
 import Public from './routes/Public';
 
+import Diary from './components/Diary/Diary'
+import DiaryCreate from './components/Diary/DiaryCreate'
+
 import Profile from './components/Profile/Profile';
 
 
@@ -55,9 +58,17 @@ function Router() {
                   element={
                     <Auth component={Profile} />
                   } 
-                />       
+                />
 
+                <Route 
+                  path="/diary" 
+                  element=
+                  {<Auth component={Diary} />}/> 
 
+                <Route 
+                  path="/new-diary" 
+                  element=
+                  {<Auth component={DiaryCreate} />}/>
 
             </Route>
 
