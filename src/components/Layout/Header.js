@@ -43,7 +43,7 @@ export default function Header() {
 										Cerrar sesión		
 									</Link>
 								</li>
-								<li>{currentUser.name}</li>
+								<li>Hola {currentUser.name}!</li>
 
 
 

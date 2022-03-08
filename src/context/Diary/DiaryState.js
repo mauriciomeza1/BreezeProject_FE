@@ -2,15 +2,15 @@ import { useReducer } from 'react'
 
 import axiosClient from './../../config/axios'
 
-import DiaryContext from './PetsContext'
-import DiaryReducer from './PetsReducer'
+import DiaryContext from  './DiaryContext'
+import DiaryReducer from './DiaryReducer'
 
 
 const DiaryState  = (props) => {
 
 	const initialState = {
 
-		diaries: ""
+		diaries: []
 
 	}
 
@@ -23,9 +23,9 @@ const DiaryState  = (props) => {
 
 	const getDiaries = async (diaryForm) => {
 
-		const res = await axiosClient.get("/api/diary/newdiary")
+		const res = await axiosClient.get("http://localhost:3006/api/diary")
 
-		const arrDiaries = res.data.data
+		const arrDiaries = res.data.data //PAY ATTENTION
 
 		dispatch({
 			type: "GET_DIARIES",
@@ -36,7 +36,8 @@ const DiaryState  = (props) => {
 
 	const createDiary = async (dataForm) => {
 
-		await axiosClient.post("/api/diary/new-diary", dataForm)
+		await axiosClient.post("http://localhost:3006/api/diary/create", dataForm)
+
 
 		getDiaries()
 
@@ -46,7 +47,7 @@ const DiaryState  = (props) => {
 	return (
 		<DiaryContext.Provider
 			value={{
-				diaries: globalState.diary,
+				diaries: globalState.diaries,
 				getDiaries,
 				createDiary
 			}}

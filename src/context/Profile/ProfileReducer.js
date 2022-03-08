@@ -1,7 +1,7 @@
 const reducer = (globalState, action) => {
 
 	switch (action.type) {
-		case "REGISTRO_EXITOSO":
+		case "GET_PROFILE":
 			return {
 				...globalState,
 			    profile: action.payload

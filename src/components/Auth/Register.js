@@ -74,6 +74,18 @@ export default function Register() {
             type="text" 
             placeholder="Enter your password" required/>
           </div>
+
+          <div className="input-box">
+            <span 
+            className="details">Confirm Password</span>
+            <input
+            name="password"
+            value={data.password}
+            onChange={(evt) => { handleChange(evt) }} 
+            type="text" 
+            placeholder="Enter your password" required/>
+          </div>
+
         </div>
         <div className="button">
           <input type="submit"/>

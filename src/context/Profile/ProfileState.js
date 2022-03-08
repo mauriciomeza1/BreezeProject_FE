@@ -1,53 +1,46 @@
 import { useReducer } from 'react'
 
+import axiosClient from './../../config/axios'
+
 import ProfileContext from './ProfileContext'
 import ProfileReducer from './ProfileReducer'
 
-import axiosClient from './../../config/axios'
 
 const ProfileState = (props) => {
 
 	const initialState = {
-        profile: [],
+        profiles: []
 	}
 
 
     const [globalState, dispatch] = useReducer(ProfileReducer, initialState)
 	
-
-	const getProfile = async (form) => {
+	const getProfile = async (profileform) => {
 			
-	  const res = await axiosClient.post("/api/profile", form)	
+	  const res = await axiosClient.get("http://localhost:3006/api/profile")	
 
        const arrProfile = res.data.data
 
 		dispatch({
-			type: "REGISTRO_EXITOSO",
+			type: "GET_PROFILE",
 			dispatch: arrProfile
 			})
 	}
 
 
 
-	const createProfile = async (form) => {
+	const createProfile = async (dataForm) => {
 
-		await axiosClient.get("/api/profile/create")
+		await axiosClient.post("http://localhost:3006/api/profile/create", dataForm)
 
-		getProfile
-
-		const listData = res.data.data  // [{},{}]
-
-		dispatch({
-			type: "OBTENER_DATA",
-			payload: listData
-		})
+		getProfile()
 
 	}
 
 	return (
 		<ProfileContext.Provider
 			value={{
-				profile: globalState.profile,
+				profiles: globalState.profiles,
 				createProfile,
 				getProfile
 			}}

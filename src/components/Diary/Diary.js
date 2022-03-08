@@ -1,8 +1,9 @@
-  import { useState } from "react"
-  
+  import { useContext, useState } from "react"
+  import DiaryContext from './../../context/Diary/DiaryContext'
+
     export default function DiaryCreate() {
 
-      const [newDiary, setNewDiary] = useState ({
+     /* const [newDiary, setNewDiary] = useState ({
         markdown: ""
       })
 
@@ -19,31 +20,46 @@
           })
       }
    
-      const handleSubmit = (event) => {
-          event.preventDefault()
-   
-          if (!newDiary.markdown) {
-              setError("No se han llenado todos los campos")
-   
-              return
-          }
-   
-          setList([
-              ...list,
-              newDiary
-          ])
-         
-          setNewDiary ({
-            markdown: ""
-          })
-         
-          setError("")
-      }
-   
+     
+      }*/
+
+     const ctxDiary = useContext(DiaryContext)
+
+      const {
+        diaries,
+        getDiaries,
+        createDiary
+      } = ctxDiary
+
+      const [newDiary, setNewDiary] = useState ({
+        markdown: ""
+      })
+
+
+      const handleChange = (event) => {
+        console.log(event.target.value)
+       
+        setNewDiary({
+            ...newDiary,
+            [event.target.name]: event.target.value
+        })
+    }
+
+
+    const handleSubmit = (event) => {
+      event.preventDefault()
+
+      createDiary(newDiary)
+
+    }
+
 
     return (
       <>
 <img className='homeinfo' src={require('./../../images/vector/header.png')} />
+
+
+<button >Obtener diarios</button>
 
 <form onSubmit={ (e) => { handleSubmit(e) } }>
 <div class="center">
@@ -62,7 +78,7 @@
             <div class="emoji-arrow"></div>
         </div>
     </div>
-<button className="diarysubmit" type="submit">SUBMIT</button>
+<button className="diarysubmit" type="submit" onClick={() =>{ getDiaries() }}>SUBMIT</button>
 </div>
        
 </div>
@@ -71,14 +87,12 @@
 <div className="container2">
 <h2 className="yourposts">Your Posts</h2>
         {
-            list.length === 0 ? <p>There's not any entry yet!</p>
+            diaries.length === 0 ? <p>There's not any entry yet!</p>
             :
-            list.map((elt, index) => {
+            diaries.map((elt, index) => {
                 return (
-                    <div>
-                      <br/>
+                    <div key = {elt._key}>
                         <h3>{elt.markdown} </h3>
-                        
                     </div>
               )  
             })

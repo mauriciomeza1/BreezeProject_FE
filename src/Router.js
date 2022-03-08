@@ -17,6 +17,8 @@ import Diary from './components/Diary/Diary'
 import Profile from './components/Profile/Profile';
 
 import ProfileMaker from './components/Profile/ProfileMaker'
+import DiaryState from './context/Diary/DiaryState';
+import ProfileState from './context/Profile/ProfileState';
 
 
 
@@ -26,7 +28,8 @@ function Router() {
     <>
 
       <UsersState>
-
+      <ProfileState>
+      <DiaryState>
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -73,13 +76,14 @@ function Router() {
                 <Route 
                   path="/diary" 
                   element=
-                  {<Auth component={Diary} />}/> 
+                  {<Public component={Diary} />}/> 
 
             </Route>
 
           </Routes>
       </BrowserRouter>
-
+      </DiaryState>
+      </ProfileState>
       </UsersState>
 
     </>
