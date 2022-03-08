@@ -36,26 +36,46 @@ export default function Login() {
 
 
   return (
-	  <>
+    
+
+<div className='login-container'> 
+  <div className="container">
+    <div className="title">Log In</div>
+    <div className="content">
       <form onSubmit={(evt) => { handleSubmit(evt) }}>
-        <label>Email</label>
-        <input 
-          name="email"
-          value={data.email}
-          onChange={(evt) => { handleChange(evt) }}
-        />
-
-        <label>Password</label>
-        <input 
-        name="password"
-        value={data.password}
-        onChange={(evt) => { handleChange(evt) }}
-        type="password"
-        />
-
-        <button type="submit">Iniciar sesión</button>
-
+        <div className="user-details">
+          <div className="input-box">
+            <span 
+            className="details">Email</span>
+            <input 
+            name="email"
+            value={data.email}
+            onChange={(evt) => { handleChange(evt) }}
+            type="text" placeholder="Enter your username" required/>
+          </div>
+          
+          <div className="input-box">
+            <span 
+            className="details">Password</span>
+            <input
+            name="password"
+            value={data.password}
+            onChange={(evt) => { handleChange(evt) }} 
+            type="password" 
+            placeholder="Enter your password" required/>
+          </div>
+        </div>
+        <div className="button">
+          <input type="submit" />
+        </div>
       </form>
-    </>
+    </div>
+  </div>
+  </div>
   )
 }
+
+
+
+
+    

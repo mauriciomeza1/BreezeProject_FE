@@ -2,6 +2,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './components/Home/Home';
 import Layout from './components/Layout/Layout';
+
 import UsersState from './context/Users/UsersState';
 
 
@@ -12,10 +13,10 @@ import Auth from './routes/Auth'
 import Public from './routes/Public';
 
 import Diary from './components/Diary/Diary'
-import DiaryCreate from './components/Diary/DiaryCreate'
 
 import Profile from './components/Profile/Profile';
 
+import ProfileMaker from './components/Profile/ProfileMaker'
 
 
 
@@ -36,7 +37,7 @@ function Router() {
                   />} 
                 />
 
-                {/* localhost:3000/registro */}
+            
                 <Route 
                   path="registro"
                   element={
@@ -52,6 +53,8 @@ function Router() {
                   } 
                 />                
 
+
+
                 {/* localhost:3000/login */}
                   <Route 
                   path="profile"
@@ -60,15 +63,17 @@ function Router() {
                   } 
                 />
 
+                  <Route 
+                  path="profile-maker"
+                  element={
+                    <Auth component={ProfileMaker} />
+                  } 
+                />
+
                 <Route 
                   path="/diary" 
                   element=
                   {<Auth component={Diary} />}/> 
-
-                <Route 
-                  path="/new-diary" 
-                  element=
-                  {<Auth component={DiaryCreate} />}/>
 
             </Route>
 

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import UsersContext from '../../context/Users/UsersContext'
 
 
-
 export default function Header() {
 
 
@@ -22,44 +21,41 @@ export default function Header() {
   return (
 	<>
 		<header>
-			<figure>
-				LOGO
+			<figure className='thelogo'>
+			<Link to="/">WRITE AND BREEZE</Link>	
 			</figure>
 				
-			<nav>
+			
+				<div className='links'>
+				<Link to = "/">Home</Link>
+				<Link to ="/diary">Your Diary</Link>
+				<Link to ="/mood-report" >Mood Report </Link>
+				</div>
+			
+			 <div>
 				<ul>
-
 					{
 						authStatus ?
 						(
 							<>
 								<li>
-									<Link
-										to="/"
-										onClick={() => {logoutUser()}}
-									>
+									<Link to="/" onClick={() => {logoutUser()}} >
 										Cerrar sesión		
 									</Link>
 								</li>
 								<li>{currentUser.name}</li>
+
+
+
+								
 							</>
 						) :
 						(
 							<>
-								<li>
-									<Link
-										to="/registro"
-									>
-									Crear cuenta
-									</Link>
-								</li>
-								<li>
-									<Link
-										to="/login"
-									>
-									Iniciar sesión
-									</Link>
-								</li>
+
+								<Link className='signupbutton' to ="/login">Log In</Link>
+								<Link className='signupbutton' to ="/registro">Sign up</Link>
+			
 							</>
 						)
 
@@ -69,8 +65,9 @@ export default function Header() {
 					
 
 				</ul>
+				</div> 
 
-			</nav>
+
 		</header>
 	
 	</>

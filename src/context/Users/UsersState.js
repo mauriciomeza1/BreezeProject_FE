@@ -12,7 +12,6 @@ const UsersState = (props) => {
 	const initialState = {
 		currentUser: {
 			name: "",
-			lastname: "",
 			email: ""
 		},
 		authStatus: false

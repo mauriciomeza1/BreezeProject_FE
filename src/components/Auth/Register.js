@@ -1,5 +1,6 @@
 // ./src/components/Auth/Register.js
 
+
 import { useState, useContext } from 'react'
 
 import UsersContext from './../../context/Users/UsersContext'
@@ -15,7 +16,6 @@ export default function Register() {
 
   const [data, setData] = useState({
     name: "",
-    lastname: "",
     email: "",
     password: ""
   })
@@ -38,45 +38,49 @@ export default function Register() {
   }
 
   return (
-    <>
+<div className='register-container'>
+  <div className="container">
+    <div className="title">Registration</div>
+    <div className="content">
       <form onSubmit={(evt) => { handleSubmit(evt) }}>
-        <label>Nombre</label>
-        <input 
-          name="name"
-          value={data.name}
-          onChange={(evt) => { handleChange(evt) }}
-        />
+        <div className="user-details">
+          <div className="input-box">
+            <span className="details">Name</span>
 
-        <br />
+            <input
+             name="name"
+             value={data.name}
+             onChange={(evt) => { handleChange(evt) }}
+             type="text" placeholder="Enter your name" required/>
+          </div>
 
-        <label>Apellido</label>
-        <input 
-          name="lastname"
-          value={data.lastname}
-          onChange={(evt) => { handleChange(evt) }}
-        />
-
-        <br />
-
-        <label>Email</label>
-        <input 
-          name="email"
-          value={data.email}
-          onChange={(evt) => { handleChange(evt) }}
-        />
-
-        <br />
-
-        <label>Contraseña</label>
-        <input 
-          name="password"
-          value={data.password}
-          onChange={(evt) => { handleChange(evt) }}
-        />
-
-        <button type="submit">Crear usuario</button>
-
+          <div className="input-box">
+            <span 
+            className="details">Email</span>
+            <input 
+            name="email"
+            value={data.email}
+            onChange={(evt) => { handleChange(evt) }}
+            type="text" placeholder="Enter your username" required/>
+          </div>
+          
+          <div className="input-box">
+            <span 
+            className="details">Password</span>
+            <input
+            name="password"
+            value={data.password}
+            onChange={(evt) => { handleChange(evt) }} 
+            type="text" 
+            placeholder="Enter your password" required/>
+          </div>
+        </div>
+        <div className="button">
+          <input type="submit"/>
+        </div>
       </form>
-    </>
+    </div>
+  </div>
+  </div>
   )
 }
