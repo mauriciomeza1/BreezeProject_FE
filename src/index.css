@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
@@ -32,7 +38,7 @@ header a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 7px;
-  color: white
+  color: blue
 
 }
 
@@ -41,7 +47,7 @@ header a {
 }
 
 .signupbutton {
-  color: white;
+  color: rgb(36, 10, 10);
   border: 2px solid white;
   padding: 1px 40px 1px 40px;
   font-size: 1.5rem
@@ -100,12 +106,13 @@ header a {
   display: flex;
   position: absolute;
   z-index: 10;
-  top: 460px;
+  top: 550px;
   left: 140px;
   font-size: 1.3rem;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .homep{
@@ -168,7 +175,7 @@ top: 100px
   display: flex;
   position: absolute;
   width: 40%;
-  top: 900px;
+  top: 1000px;
   left: 120px
 }
 
@@ -179,7 +186,7 @@ top: 100px
 
 .breezedescription {
 position: absolute;
-top: 700px;
+top: 840px;
 text-align: center;
 margin: 0 275px 0 275px;
 font-size: 1.6rem;
@@ -231,20 +238,14 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-.container {
+.diarycontainer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:flex-start;
   flex-direction: column;
 }
 
-.container2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  top: 300px
-}
+
 
 .emoji {
   font-size: 30px;
@@ -321,7 +322,24 @@ transform: translate(-50%, -50%);
 
 
 
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 300px;
+  border: 3px solid rgb(4, 32, 39);
+}
 
+.eltmarkdown {
+  margin: 40px
+}
+
+.yourpostscontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -497,3 +515,192 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
+
+.profilecardcontainer {
+  display: flex;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  background-color: rgba(18, 161, 119, 0.342);
+}
+
+
+.profilecard {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+
+.profilecard .profiletext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profilecard .profiletext img{
+    height: 170px;
+    border-radius: 50%;
+   margin-bottom:10px;
+}
+
+.profilecard .profiletext h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.profilecard .profiletext p:nth-of-type(1){
+    color: rgb(4, 32, 39);
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.profilecard .profiletext p:nth-of-type(2){
+    margin: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.profilecard .links{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.profilecard .links i{
+    color: rgb(35, 182, 219);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profilecard .links i:hover{
+    color:rgb(29, 157, 189) ;
+}
+
+
+
+.profilecardcontainer2 {
+  display: flex;
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  background-color: rgba(18, 161, 119, 0.342);
+}
+
+
+.profilecardcontainer2{
+  display: flex;
+  position: absolute;
+  bottom: 100px;
+  left: 600px;
+  width: 50%
+}
+
+.profilecard2 .profiletext2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profilecard2 .profiletext2 h3{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.profilecard2 .profiletext2 p:nth-of-type(1){
+    color: rgb(4, 32, 39);
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.profilecard .profiletext2 p:nth-of-type(2){
+    margin: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+
+.markdowns {
+  border: 1px rgb(4, 32, 39) solid;
+  padding: 30px;
+  width: 80%;
+  border-radius: 10px;
+  margin: 30px;
+  bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+/*
+@media all and (max-width: 1510px){
+
+  header {
+    font-size: 1rem
+  }
+
+  .thelogo {
+    font-size: 1.2rem;
+  }
+
+
+  .links, a{
+    padding: 0 20px 0 20px;
+  }
+  
+  .signupbutton {
+    color: white;
+    border: 2px solid white;
+    padding: 1px 40px 1px 40px;
+    font-size: 1.2rem
+  }
+
+}
+
+@media all and (max-width: 1510px){
+
+.herotext1, .herotext2{
+  font-size: 2rem;
+  width: 100%;
+}
+
+.herobutton {
+  font-size: 1.4rem;
+}
+
+}
+
+@media all and (max-width: 1450px){
+
+  .hometext {
+    bottom: 100px;
+  }
+
+}
+
+@media all and (max-width: 768px){
+
+  header {
+    font-size: 0.7rem
+  }
+
+
+  .links, a{
+    padding: 0 10px 0 10px;
+  }
+  
+  .signupbutton {
+    color: white;
+    border: 2px solid white;
+    padding: 1px 40px 1px 40px;
+    font-size: 0.8rem
+  }
+
+}*/

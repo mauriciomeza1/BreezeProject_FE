@@ -210,9 +210,9 @@ export default function Profile() {
                 return (
                     <div key = {elt._key}>
                         <h3>{elt.age} </h3>
-                        <h3>{elt.pronouns} </h3>                        <h3>{elt.age} </h3>
-                        <h3>{elt.about} </h3>                        <h3>{elt.age} </h3>
-                        <h3>{elt.needs} </h3>                        <h3>{elt.age} </h3>
+                        <h3>{elt.pronouns} </h3>                       
+                        <h3>{elt.about} </h3>                       
+                        <h3>{elt.needs} </h3>                        
                         <h3>{elt.goals} </h3> 
                     </div>
               )  

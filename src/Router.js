@@ -12,7 +12,7 @@ import Login from './components/Auth/Login'
 import Auth from './routes/Auth'
 import Public from './routes/Public';
 
-import Diary from './components/Diary/Diary'
+import NewDiary from './components/Diary/NewDiary'
 
 import Profile from './components/Profile/Profile';
 
@@ -76,7 +76,7 @@ function Router() {
                 <Route 
                   path="/diary" 
                   element=
-                  {<Public component={Diary} />}/> 
+                  {<Public component={NewDiary} />}/> 
 
             </Route>
 

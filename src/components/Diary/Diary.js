@@ -3,26 +3,6 @@
 
     export default function DiaryCreate() {
 
-     /* const [newDiary, setNewDiary] = useState ({
-        markdown: ""
-      })
-
-      const [list, setList] = useState([])
- 
-      const [error, setError] = useState("")
-   
-      const handleChange = (event) => {
-          console.log(event.target.value)
-         
-          setNewDiary({
-              ...newDiary,
-              [event.target.name]: event.target.value
-          })
-      }
-   
-     
-      }*/
-
      const ctxDiary = useContext(DiaryContext)
 
       const {
@@ -59,12 +39,10 @@
 <img className='homeinfo' src={require('./../../images/vector/header.png')} />
 
 
-<button >Obtener diarios</button>
-
 <form onSubmit={ (e) => { handleSubmit(e) } }>
 <div class="center">
 <h2>How are you feeling today?</h2>
-<div class="container">
+<div class="diarycontainer">
     <textarea 
     name="markdown"
     type="text"
@@ -84,20 +62,28 @@
 </div>
 </form>
 
+<div className="yourpostscontainer">
+  <h2 className="yourposts">Your Posts</h2>
+</div>
+
 <div className="container2">
-<h2 className="yourposts">Your Posts</h2>
+
         {
             diaries.length === 0 ? <p>There's not any entry yet!</p>
             :
             diaries.map((elt, index) => {
                 return (
+                  <div className="markdowns">
                     <div key = {elt._key}>
-                        <h3>{elt.markdown} </h3>
+                        <h3 className="eltmarkdown">{elt.markdown} </h3>
+                        <button>Editar</button>
+                        <button>Borrar</button>
                     </div>
+                  </div>  
               )  
             })
         }  
-</div> 
+</div>  
 
         
 </>

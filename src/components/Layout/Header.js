@@ -16,7 +16,7 @@ export default function Header() {
 		logoutUser
 	} = ctxUser
 
-
+	console.log(currentUser)
 
   return (
 	<>

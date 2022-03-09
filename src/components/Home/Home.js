@@ -1,11 +1,5 @@
-// ./src/components/Home/Home.js
-
 import { useContext } from 'react'
-import UsersContext from './../../context/Users/UsersContext'
-
-
-
-
+import UsersContext from '../../context/Users/UsersContext'
 
 export default function Home() {
 
@@ -22,47 +16,20 @@ export default function Home() {
 
 	console.log(ctxUsers)
 
-
   return (
-	<>
+    <div>
+<div class="relative bg-800">
+  <div class="absolute inset-0">
+    <img class="hero w-full h-full object-cover" src={require('./../../images/vector/Hero.png')} alt=""/>
+    <div class="absolute inset-0 bg-800 mix-blend-multiply" aria-hidden="true"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Get in touch</h1>
+    <p class="mt-6 text-xl text-indigo-100 max-w-3xl">Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.</p>
+  </div>
+</div>
 
-
-
-
-		<img className='hero' src={require('./../../images/vector/Hero.png')} />
-		<div className='herocontent'>
-			<h3 className='herotext1'>
-			Nemo enim
-			</h3>
-			<h3 className='herotext2'>
-			Adipiscing elit proin felis justo
-			</h3>
-
-			<button className='herobutton'>Learn more</button>
-
-		</div>
-
-		<div className='hometext'>
-			<p className='homep'>
-			"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-			</p>
-			<button>Start off</button>
-		</div>
-		
-		
-		 {/* <p>Verificar autenticación</p>
-		<button onClick={() => { verifyingToken() }}>VERIFICAR</button>
-
-		<h1 className='tuusuario'>Tu usuario:</h1>
-		<p>{currentUser.name}</p>
-		<p>{currentUser.lastname}</p>
-		<p>{currentUser.email}</p> */}
-
-
-		<div>   
-
-
-
+<div className=" w-full h-full mt-80 object-cover">
 		<img className='homeinfo' src={require('./../../images/vector/backg.png')} />
 		<img className='guydiary' src={require('./../../images/vector/GuyDiary.png')} />
 		<div className='breezedescription'>
@@ -89,15 +56,19 @@ export default function Home() {
 				</p>
 
 			</div>
+      	
+	</div>
+  </div>
 
+  
+  <div className='hometext'>
+			<p className='homep'>
+			"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+			</p>
+			<button>Start off</button>
 		</div>
-		</div>
-		
 
 
-
-
-
-	</>
+    </div>
   )
 }

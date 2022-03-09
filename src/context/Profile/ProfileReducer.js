@@ -4,7 +4,7 @@ const reducer = (globalState, action) => {
 		case "GET_PROFILE":
 			return {
 				...globalState,
-			    profile: action.payload
+			    profiles: action.payload
 			}
 
 		default:
