@@ -1,19 +1,23 @@
 import DiaryContext from './../../context/Diary/DiaryContext'
-import { Fragment, useState, useContext } from 'react'
-import {
-  EmojiHappyIcon,
-  EmojiSadIcon,
-  FireIcon,
-  HeartIcon,
-  PaperClipIcon,
-  ThumbUpIcon,
-  XIcon,
-} from '@heroicons/react/solid'
-import { Listbox, Transition } from '@headlessui/react'
+import { useState, useContext } from 'react'
+
+import { nanoid } from 'nanoid';
+
 
 export default function NewDiary() {
+ 
 
-const ctxDiary = useContext(DiaryContext)
+  const [newComment, setNewComment] = useState({
+    markdown: ''
+  }) 
+ 
+
+ const [list,setList] = useState([])
+
+ const [id, setId] = useState("")
+ const [editionMode, setEditionMode] = useState(false)
+
+ const ctxDiary = useContext(DiaryContext)
 
       const {
         diaries,
@@ -31,6 +35,7 @@ const ctxDiary = useContext(DiaryContext)
        
         setNewDiary({
             ...newDiary,
+            id: nanoid(),
             [event.target.name]: event.target.value
         })
     }
@@ -38,6 +43,14 @@ const ctxDiary = useContext(DiaryContext)
 
     const handleSubmit = (event) => {
       event.preventDefault()
+          
+          setList([
+              ...list,
+              newDiary
+          ])
+          setNewComment({
+              markdown: ""
+          })
 
       createDiary(newDiary)
 
@@ -45,29 +58,48 @@ const ctxDiary = useContext(DiaryContext)
 
 
 
-const moods = [
-  { name: 'Excited', value: 'excited', icon: FireIcon, iconColor: 'text-white', bgColor: 'bg-red-500' },
-  { name: 'Loved', value: 'loved', icon: HeartIcon, iconColor: 'text-white', bgColor: 'bg-pink-400' },
-  { name: 'Happy', value: 'happy', icon: EmojiHappyIcon, iconColor: 'text-white', bgColor: 'bg-green-400' },
-  { name: 'Sad', value: 'sad', icon: EmojiSadIcon, iconColor: 'text-white', bgColor: 'bg-yellow-400' },
-  { name: 'Thumbsy', value: 'thumbsy', icon: ThumbUpIcon, iconColor: 'text-white', bgColor: 'bg-blue-500' },
-  { name: 'I feel nothing', value: null, icon: XIcon, iconColor: 'text-gray-400', bgColor: 'bg-transparent' },
-]
+  const handleSubmitEdit = (event) => {
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+		event.preventDefault()
+		const filteredArray = list.map((item) => {
+			return item.id === id ? {
+				id: id,
+				subject: newDiary.markdown,
+			} : item
+		})
+
+		console.log(filteredArray)
+
+		setList(filteredArray)
+
+		setNewComment({
+			markdown: "",
+		})
+  }
+
+  
 
 
-  const [selected, setSelected] = useState(moods[5])
+ const current = new Date();
+ const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+
 
   return (
     <>
     <img className='homeinfo' src={require('./../../images/vector/header.png')} />
-   
+    <div className='quotecontainer'>
+    <h2 className='quotediary'>One small positive thought can change your whole day. <br/>-Zig Ziglar</h2>
+    </div>
     <div className=" diario flex items-start space-x-4">
       <div className="min-w-0 flex-1">
-        <form onSubmit={ (e) => { handleSubmit(e) } } className="relative">
+        <form
+        onSubmit={
+          editionMode ? 
+              (evt) => { handleSubmitEdit(evt) } 
+              : 
+              (evt) => { handleSubmit(evt) } 
+          }>
           <div className="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
             <label htmlFor="comment" className="sr-only">
               Add your comment
@@ -98,75 +130,7 @@ function classNames(...classes) {
               <div className="flex items-center">
               </div>
               <div className="flex items-center">
-                <Listbox value={selected} onChange={setSelected}>
-                  {({ open }) => (
-                    <>
-                      <Listbox.Label className="sr-only">Your mood</Listbox.Label>
-                      <div className="relative">
-                        <Listbox.Button className="relative -m-2.5 w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-500">
-                          <span className="flex items-center justify-center">
-                            {selected.value === null ? (
-                              <span>
-                                <EmojiHappyIcon className="flex-shrink-0 h-5 w-5" aria-hidden="true" />
-                                <span className="sr-only">Add your mood</span>
-                              </span>
-                            ) : (
-                              <span>
-                                <div
-                                  className={classNames(
-                                    selected.bgColor,
-                                    'w-8 h-8 rounded-full flex items-center justify-center'
-                                  )}
-                                >
-                                  <selected.icon className="flex-shrink-0 h-5 w-5 text-white" aria-hidden="true" />
-                                </div>
-                                <span className="sr-only">{selected.name}</span>
-                              </span>
-                            )}
-                          </span>
-                        </Listbox.Button>
-
-                        <Transition
-                          show={open}
-                          as={Fragment}
-                          leave="transition ease-in duration-100"
-                          leaveFrom="opacity-100"
-                          leaveTo="opacity-0"
-                        >
-                          <Listbox.Options className="absolute z-10 mt-1 -ml-6 w-60 bg-white shadow rounded-lg py-3 text-base ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm">
-                            {moods.map((mood) => (
-                              <Listbox.Option
-                                key={mood.value}
-                                className={({ active }) =>
-                                  classNames(
-                                    active ? 'bg-gray-100' : 'bg-white',
-                                    'cursor-default select-none relative py-2 px-3'
-                                  )
-                                }
-                                value={mood}
-                              >
-                                <div className="flex items-center">
-                                  <div
-                                    className={classNames(
-                                      mood.bgColor,
-                                      'w-8 h-8 rounded-full flex items-center justify-center'
-                                    )}
-                                  >
-                                    <mood.icon
-                                      className={classNames(mood.iconColor, 'flex-shrink-0 h-5 w-5')}
-                                      aria-hidden="true"
-                                    />
-                                  </div>
-                                  <span className="ml-3 block font-medium truncate">{mood.name}</span>
-                                </div>
-                              </Listbox.Option>
-                            ))}
-                          </Listbox.Options>
-                        </Transition>
-                      </div>
-                    </>
-                  )}
-                </Listbox>
+   
               </div>
             </div>
             <div className="flex-shrink-0">
@@ -179,6 +143,11 @@ function classNames(...classes) {
               </button>
             </div>
           </div>
+
+   
+                    <button type="submit">Create Entry</button>
+            
+
         </form>
       </div>
 
@@ -186,16 +155,15 @@ function classNames(...classes) {
       {
             diaries.length === 0 ? <p>There's not any entry yet!</p>
             :
-            diaries.map((elt, index) => {
+            diaries.map((item, index) => {
                 return (
                   <div className="markdowns">
-                    <div key = {elt._key}>
-                        <h3 className="eltmarkdown">{elt.markdown} 
+                    <div key = {item._key}>
+                        <h3 className="eltmarkdown">{item.markdown}
                         </h3>
-                        <p className='selectedicon'>
-                        </p>
-                        <button>Editar</button>
-                        <button>Borrar</button>
+                        <p className='eltdate'>{date}</p>
+                        {/* <button onClick={ () => { editComment(item) }}>Editar</button>
+                        <button onClick={ () => { deleteComment(item.id) }}>Borrar</button> */}
                     </div>
                   </div>  
               )  
@@ -206,5 +174,3 @@ function classNames(...classes) {
     </>
   )
 }
-
-

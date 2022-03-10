@@ -132,7 +132,8 @@ header a {
 }
 
 .signupbutton, .loginbutton {
-  margin: 0 8px 0 8px
+  margin: 0 8px 0 8px;
+  color: white
   
 }
 
@@ -655,10 +656,33 @@ form .user-details .input-box{
   margin: 0 30px 0 30px
 }
 
+.quotecontainer {
+  display: flex;
+}
 
+.quotediary {
+  color: white;
+  display: flex;
+  position: absolute;
+  font-size: 2rem;
+  top: 180px;
+  width: 75%;
+  padding: 40px
+}
 
+.aboutcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-
+.aboutcontainer p{
+  display: flex;
+  position: absolute;
+  color:white;
+  top: 150px;
+  font-size: 3rem;
+}
 
 
 

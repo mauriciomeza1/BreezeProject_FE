@@ -29,7 +29,7 @@ export default function Header() {
 				<div className='links'>
 				<Link to = "/">Home</Link>
 				<Link to ="/diary">Your Diary</Link>
-				<Link to ="/mood-report" >Mood Report </Link>
+				<Link to ="/about" >About Us </Link>
 				</div>
 			
 			 <div>
