@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import UsersContext from '../../context/Users/UsersContext'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
 
@@ -37,7 +38,7 @@ export default function Home() {
 			The Breez Experience
 			</h2>
 			<p>
-			Enjoy guided mindfulness and meditation classes online. Practice with us as much as you want on any digital device.
+			Enjoy mindfulness and meditation experience online. Practice with us as much as you want on any digital device.
 			</p>
 
 			<div className='homesub'>
@@ -65,7 +66,7 @@ export default function Home() {
 			<p className='homep'>
 			"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 			</p>
-			<button>Start off</button>
+			<Link to="/register"><button>Start off</button></Link>
 		</div>
 
 

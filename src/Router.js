@@ -45,7 +45,7 @@ function Router() {
 
             
                 <Route 
-                  path="registro"
+                  path="register"
                   element={
                     <Auth component={Register} />
                   } 

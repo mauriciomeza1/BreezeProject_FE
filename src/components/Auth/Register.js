@@ -71,7 +71,7 @@ export default function Register() {
             name="password"
             value={data.password}
             onChange={(evt) => { handleChange(evt) }} 
-            type="text" 
+            type="password" 
             placeholder="Enter your password" required/>
           </div>
 
@@ -82,7 +82,7 @@ export default function Register() {
             name="password"
             value={data.password}
             onChange={(evt) => { handleChange(evt) }} 
-            type="text" 
+            type="password" 
             placeholder="Enter your password" required/>
           </div>
 

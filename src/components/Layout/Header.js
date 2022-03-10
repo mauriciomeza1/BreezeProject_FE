@@ -54,7 +54,7 @@ export default function Header() {
 							<>
 
 								<Link className='signupbutton' to ="/login">Log In</Link>
-								<Link className='signupbutton' to ="/registro">Sign up</Link>
+								<Link className='signupbutton' to ="/register">Sign up</Link>
 			
 							</>
 						)
