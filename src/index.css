@@ -27,6 +27,7 @@ header {
   padding: 0 20px 0 20px;
   height: 0;
   top: 20px;
+  z-index: 100;
 }
 
 header a {
@@ -245,6 +246,11 @@ transform: translate(-50%, -50%);
   flex-direction: column;
 }
 
+.diario {
+  display: block;
+  margin: 0 20% 0 20%
+
+}
 
 
 .emoji {
@@ -332,7 +338,7 @@ transform: translate(-50%, -50%);
 }
 
 .eltmarkdown {
-  margin: 40px
+  margin: 41px
 }
 
 .yourpostscontainer {
@@ -341,6 +347,12 @@ transform: translate(-50%, -50%);
   align-items: center;
 }
 
+.selectedicon {
+  width: 50px;
+  display: flex;
+  position: absolute;
+  left: 300px;
+}
 
 
 
@@ -357,8 +369,12 @@ footer {
 }
 
 
-
-
+.allthecomments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
 
 
 
@@ -629,8 +645,15 @@ form .user-details .input-box{
   border-radius: 10px;
   margin: 30px;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
+.markdowns button{
+  margin: 0 30px 0 30px
+}
 
 
 

@@ -19,6 +19,7 @@ import Profile from './components/Profile/Profile';
 import ProfileMaker from './components/Profile/ProfileMaker'
 import DiaryState from './context/Diary/DiaryState';
 import ProfileState from './context/Profile/ProfileState';
+import MoodTracker from './context/MoodTracker/MoodTracker';
 
 
 
@@ -77,6 +78,12 @@ function Router() {
                   path="/diary" 
                   element=
                   {<Public component={NewDiary} />}/> 
+
+
+                  <Route 
+                  path="/mood" 
+                  element=
+                  {<Public component={MoodTracker} />}/> 
 
             </Route>
 

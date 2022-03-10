@@ -45,7 +45,6 @@ const ctxDiary = useContext(DiaryContext)
 
 
 
-
 const moods = [
   { name: 'Excited', value: 'excited', icon: FireIcon, iconColor: 'text-white', bgColor: 'bg-red-500' },
   { name: 'Loved', value: 'loved', icon: HeartIcon, iconColor: 'text-white', bgColor: 'bg-pink-400' },
@@ -63,14 +62,10 @@ function classNames(...classes) {
   const [selected, setSelected] = useState(moods[5])
 
   return (
-    <div className="flex items-start space-x-4">
-      <div className="flex-shrink-0">
-        <img
-          className="inline-block h-10 w-10 rounded-full"
-          src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-          alt=""
-        />
-      </div>
+    <>
+    <img className='homeinfo' src={require('./../../images/vector/header.png')} />
+   
+    <div className=" diario flex items-start space-x-4">
       <div className="min-w-0 flex-1">
         <form onSubmit={ (e) => { handleSubmit(e) } } className="relative">
           <div className="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
@@ -195,7 +190,10 @@ function classNames(...classes) {
                 return (
                   <div className="markdowns">
                     <div key = {elt._key}>
-                        <h3 className="eltmarkdown">{elt.markdown} </h3>
+                        <h3 className="eltmarkdown">{elt.markdown} 
+                        </h3>
+                        <p className='selectedicon'>
+                        </p>
                         <button>Editar</button>
                         <button>Borrar</button>
                     </div>
@@ -205,6 +203,7 @@ function classNames(...classes) {
         }  
       </div>
     </div>
+    </>
   )
 }
 
