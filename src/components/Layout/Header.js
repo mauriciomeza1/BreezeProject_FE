@@ -16,11 +16,10 @@ export default function Header() {
 		logoutUser
 	} = ctxUser
 
-	console.log(currentUser)
 
   return (
 	<>
-		<header>
+		<header className="topnav" id="myTopnav">
 			<figure className='thelogo'>
 			<Link to="/">WRITE AND BREEZE</Link>	
 			</figure>
@@ -40,10 +39,10 @@ export default function Header() {
 							<>
 								<li>
 									<Link to="/" onClick={() => {logoutUser()}} >
-										Cerrar sesión		
+										Log Out		
 									</Link>
 								</li>
-								<li>Hola {currentUser.name}!</li>
+								<li>Hey {currentUser.name}!</li>
 
 
 

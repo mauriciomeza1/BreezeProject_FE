@@ -55,7 +55,6 @@ export default function Profile() {
     getProfile()
   }, [])
 
-  console.log(profiles)
   
   return (
     <>

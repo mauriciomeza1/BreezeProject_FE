@@ -23,7 +23,6 @@ export default function Profile() {
 
 
     const handleChange = (event) => {
-        console.log(event.target.value)
 
         setProfile({
             ...newProfile,

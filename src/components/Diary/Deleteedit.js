@@ -14,8 +14,6 @@ export default function Main() {
     const [editionMode, setEditionMode] = useState(false)
     
     const handleChange = (event) => {
-        console.log(event.target.value);
-        console.log('hola')
 
         setNewComment({
             ...newComment, //spreadoperator : genera una copia de los valores que se quedaron 
@@ -78,8 +76,6 @@ export default function Main() {
 			} : item
 		})
 
-		console.log(filteredArray)
-
 		setList(filteredArray)
 
 		setEditionMode(false)
@@ -96,7 +92,6 @@ export default function Main() {
 	}
 
     const deleteComment = (id) => {
-        console.log(id);
         // ENCONTRAR EL ELEMENTO DENTRO DEL LISTADO Y SACARLO DE AHÍ
 		//		        A
 		// list => [*,*,A,*,*]

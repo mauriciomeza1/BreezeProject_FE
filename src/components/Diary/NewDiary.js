@@ -31,7 +31,6 @@ export default function NewDiary() {
 
 
       const handleChange = (event) => {
-        console.log(event.target.value)
        
         setNewDiary({
             ...newDiary,
@@ -68,7 +67,6 @@ export default function NewDiary() {
 			} : item
 		})
 
-		console.log(filteredArray)
 
 		setList(filteredArray)
 

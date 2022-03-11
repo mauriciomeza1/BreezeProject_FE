@@ -79,7 +79,7 @@ function Router() {
                 <Route 
                   path="/diary" 
                   element=
-                  {<Public component={NewDiary} />}/>
+                  {<Auth component={NewDiary} />}/>
 
                   <Route 
                   path="/diary-example" 

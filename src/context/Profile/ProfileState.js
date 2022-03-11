@@ -20,7 +20,6 @@ const ProfileState = (props) => {
 	  const res = await axiosClient.get("http://localhost:3006/api/profile")	
 
        const arrProfile = res.data.data
-	   console.log(arrProfile)
 
 		dispatch({
 			type: "GET_PROFILE",

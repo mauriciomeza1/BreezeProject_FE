@@ -12,7 +12,6 @@ export default function NewHeader() {
 		logoutUser
 	} = ctxUser
 
-	console.log(currentUser)
   return (
     <div>
         

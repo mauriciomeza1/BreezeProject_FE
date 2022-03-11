@@ -15,7 +15,6 @@ export default function Home() {
 	} = ctxUsers
 
 
-	console.log(ctxUsers)
 
   return (
     <div>
